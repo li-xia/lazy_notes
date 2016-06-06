@@ -1,4 +1,25 @@
-# Cross Validation
+Cross Validation
 
-Laziest way of training a model is to use the whole training set. But the obatined model usually does not fit the real world test well (e.g., overfitting). For that, we introduce cross validation.
+Laziest way of training a model is to use the whole training set. But the obatined model usually does not fit the 
+real world test well (e.g., overfitting). For that, we introduce cross validation (CV). The key ideas behind CV are:
+- Accuracy on training set is optimistic
+- Independent test set gives better estimates
+- Using real test set is cheating
+
+CV is also based on an important assumption:both the training and test data are the samples from i.d.d. distribution.
+That means, a newly arrived test set has no differ from the training and test sets from CV.
+
+Assume we have a training set D has n instances. We could apply CV. The steps of doing CV can be summarized as follows:
+1. Split D to training and test sets
+2. Build model using training sets
+3. Evaluate model using test sets
+4. Repeat 2 and 3 several times
+5. Average the evaluation error
+
+There are several ways to `split' D:
+1. Random subsampling. Every iteration of CV, the training sets and test sets are randomly assigned. The problem of subsampling is that sometimes, you get repeated instances across multiple iterations.
+2. K-fold. Split D to k chunks. For example, in 5-folds CV, you split D to {D1, D2, D3, D4, D5}. At first iter, you use {D1 - D4} to build the model and use D5 to evaluate the model; at second iter, you use {D1, D3, D4, D5} to build the model and use D2 to evaluate, and so forth. An extreme case is 'leave one out' CV.
+
+
+
 
