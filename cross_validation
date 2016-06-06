@@ -1,0 +1,4 @@
+# Cross Validation
+
+Laziest way of training a model is to use the whole training set. But the obatined model usually does not fit the real world test well (e.g., overfitting). For that, we introduce cross validation.
+
