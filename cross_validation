@@ -30,6 +30,8 @@ subsampling is that sometimes, you get repeated instances across multiple iterat
 you use {D1 - D4} to build the model and use D5 to evaluate the model; at second iter, you use {D1, D3, D4, D5} to 
 build the model and use D2 to evaluate, and so forth. An extreme case is 'leave one out' CV.
 
-
+!!Important notes:
+1. Check if your random generator is reliable. One way to plot the sampling (index) and check if the distribution.
+2. If we would like to do modeling fitting with replicated results, DO NOT SHUFFLE the data during a fitting round. 
 
 
