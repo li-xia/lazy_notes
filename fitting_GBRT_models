@@ -1,0 +1,58 @@
+Fitting Model With CV (Concept)
+
+There are two main approaches to fit GBRT models:
+
+1. Grid Search
+Steps: 
+    1. Define your parameter grid and value space (bounds and steps)
+    
+    2. Select a CV method (e.g., subsampling, k-folds)
+    
+    3. Select a metrice (e.g., loss error, mse, rmse, mape)
+    
+    4. Run with iterations, save current best, stop till: a) either iteration stops; b) the metrice of performance 
+    no longer improved (early stop)
+    
+Pros: Easy
+
+Cons: Slow, need carefully define steps, difficult to tunie multi-variate params (cor-var is not considered during tuning)
+
+
+2. Optimization
+Steps:
+    1. Define your parameter grid and value space (bounds and steps)
+    
+    2. Select a CV method 
+    
+    3. Select a metrice
+    
+    4. Define an objective function (which is the average metrice of CV) for the optimizer
+    
+Pros: Fast! The step can be determined during optimisation, which reduce the errors on this. Also, co-var is under 
+consideration. Flexible, acquisition method can be changed. Can do batched optimisation.
+
+Cons: More codings. 
+
+
+Example of fitting Gradient Boosting Regression Tree (GBRT) model can be summarized:
+1. We fixed max depth=5, and learning rate(eta)=0.1, run CV to find an optimal round number
+
+2. Tune 'max depth' and 'min child weight' with others fixed
+    max depth = (3, 12)
+    eta = 0.1
+    min child weight = (1, 6)
+    gamma = 0
+    sub sample = 0.8
+    col sample (by tree) = 0.8
+    alpha (L1 norm)=0
+    
+  3. Tune 'gamma(0, 0.5)' with other fixed
+  
+  4. Tune 'sub sample' (0.5, 0.9) and 'col sample' (0.5, 0.9) with other fixed
+  
+  5. Tune 'alpha' (0, 0.05) with other fixed
+  
+  6. Now reduce eta to 0.01 and try to find optimal rounds again
+  
+  At the end, all tuned params (with learning rate = 0.01) can be used to fit the whole training set to build the model.
+  
