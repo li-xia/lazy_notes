@@ -2,3 +2,10 @@ About regularization
 
 
 1. Andrew Gelman used to talk about using very little information to do regularisation but still gain great benefit.
+   These little information can be some common senses, knowledge from early experiments (e.g., logistic regression coefs
+   almost always between -5 and 5 [example given by Andrew Gelman). 
+   
+   Assume we wanna estimate hierachical hyper-parameters, the most frequent idea that most people (including me) come up is
+   CV. But in case if the data is not very significant or to say, if the data is not close to the population (especially for
+   big data, big data is very unlikely to be true random). In this case, soft constraints should be used. But this could make
+   CV lasts for quite a long term before it hits the optimal.
