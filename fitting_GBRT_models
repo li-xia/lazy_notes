@@ -46,13 +46,18 @@ Example of fitting Gradient Boosting Regression Tree (GBRT) model can be summari
     col sample (by tree) = 0.8
     alpha (L1 norm)=0
     
-  3. Tune 'gamma(0, 0.5)' with other fixed
+3. Tune 'gamma(0, 0.5)' with other fixed
   
-  4. Tune 'sub sample' (0.5, 0.9) and 'col sample' (0.5, 0.9) with other fixed
+4. Tune 'sub sample' (0.5, 0.9) and 'col sample' (0.5, 0.9) with other fixed
   
-  5. Tune 'alpha' (0, 0.05) with other fixed
+5. Tune 'alpha' (0, 0.05) with other fixed
   
-  6. Now reduce eta to 0.01 and try to find optimal rounds again
+6. Now reduce eta to 0.01 and try to find optimal rounds again
   
-  At the end, all tuned params (with learning rate = 0.01) can be used to fit the whole training set to build the model.
+At the end, all tuned params (with learning rate = 0.01) can be used to fit the whole training set to build the model.
   
+
+Remember: 
+- shrinkage parameter (eta) will only affect the prediction score of the leaf nodes and not the shape of the tree
+- other parameters such as gamma, max_depth, min_child_weight, max_delta_step, subsample, colsample_bytree have influence
+  on the shape of the tree
