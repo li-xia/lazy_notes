@@ -1,4 +1,5 @@
 # Fragmented machine learning study notes.
+(These are dummy version. These should be replaced by IPython version notes soon)
 
 # Modeling Fitting
 - cross_validation: notes on cross validation (CV)
