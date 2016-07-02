@@ -1,0 +1,9 @@
+Prior:
+
+[Discussion] Why we are interested in prior? 
+  a) To do better regularization. Model fitting or model selection without prior may lead to noisy and unstable estimates 
+     and the result maybe totally rubish
+     
+  b) Better prior can help compute better posterior, thus make better predictive posterior for classification, prediction etc
+  
+BUT REMEMBER!!! Noninformative prior are mostly useless!
